@@ -1,4 +1,4 @@
-package com.dev.babacar.banking_cqrs_es;
+package com.dev.babacar.banking;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

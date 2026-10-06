@@ -1,9 +1,6 @@
-package com.dev.babacar.banking_cqrs_es.domain.account;
+package com.dev.babacar.banking.domain.account;
 
-import com.dev.babacar.banking.domain.account.BankAccount;
-import com.dev.babacar.banking.domain.account.Money;
 import com.dev.babacar.banking.domain.command.OpenAccountCommand;
-import com.dev.babacar.banking.domain.event.AccountOpenedEvent;
 import org.axonframework.test.aggregate.AggregateTestFixture;
 import org.axonframework.test.aggregate.FixtureConfiguration;
 import org.junit.jupiter.api.BeforeEach;
