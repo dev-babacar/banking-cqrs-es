@@ -8,8 +8,6 @@ import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
 
-import java.time.Instant;
-
 @Aggregate
 public class BankAccount {
 
@@ -36,8 +34,7 @@ public class BankAccount {
         AggregateLifecycle.apply(new AccountOpenedEvent(
                 command.accountId(),
                 command.ownerName(),
-                command.initialBalance(),
-                Instant.now()
+                command.initialBalance()
         ));
     }
 

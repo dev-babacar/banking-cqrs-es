@@ -1,6 +1,7 @@
 package com.dev.babacar.banking.domain.account;
 
 import com.dev.babacar.banking.domain.command.OpenAccountCommand;
+import com.dev.babacar.banking.domain.event.AccountOpenedEvent;
 import org.axonframework.test.aggregate.AggregateTestFixture;
 import org.axonframework.test.aggregate.FixtureConfiguration;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,5 +29,13 @@ class BankAccountTest {
         fixture.givenNoPriorActivity()
                 .when(new OpenAccountCommand("acc-123", "  ", Money.of(500)))
                 .expectException(IllegalArgumentException.class);
+    }
+
+    @Test
+    void devrait_ouvrir_un_compte_avec_un_solde_initial_valide() {
+        fixture.givenNoPriorActivity()
+                .when(new OpenAccountCommand("acc-123", "Fatou Diop", Money.of(500)))
+                .expectSuccessfulHandlerExecution()
+                .expectEvents(new AccountOpenedEvent("acc-123", "Fatou Diop", Money.of(500)));
     }
 }
